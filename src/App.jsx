@@ -4,7 +4,7 @@ import Round from './components/Round'
 function App() {
   return (
     <>
-    <Round/>
+    <Round />
 
     </>
   )
