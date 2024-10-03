@@ -21,6 +21,7 @@ const Round = () => {
   }
 
   function roundNumber() {
+    setUserAnswer('');
     const factor = getRoundingFactor();
     const number = getRandomNumber(factor);  // Losuj liczbę od wartości `factor` w górę
     const rounded = Math.round(number / factor) * factor;
@@ -66,9 +67,11 @@ const Round = () => {
           value={userAnswer} // Powiązanie pola input z wartością userAnswer
           onChange={handleInputChange} // Obsługa zmiany wartości input
         /> 
-        <button type="submit">Sprawdź</button> 
+        <button className='task-button' type="submit">Sprawdź</button> 
+        <button className='task-button' onClick={roundNumber}>NEXT</button>
       </form> 
-      {userAnswer && <p>{message}</p>} {/* Wyświetlanie wiadomości, jeśli istnieje */}
+      {userAnswer && <p className='answer-info'>{message}</p>} {/* Wyświetlanie wiadomości, jeśli istnieje */}
+      
     </>
   );
 };

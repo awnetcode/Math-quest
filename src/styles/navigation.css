@@ -1,0 +1,86 @@
+/* Podstawowe style kontenera */
+
+.navbar{
+  width: 80%;
+  
+  padding: 2rem;
+  display: flex;
+}
+.hamburger-menu {
+  width: 100%;
+  }
+  
+  /* Styl przycisku hamburgera */
+  .hamburger-icon {
+    display: inline-block;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  
+  .hamburger-icon .line {
+    width: 100%;
+    height: 4px;
+    background-color: #8e8e8e;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Animacja przycisku hamburgera */
+  .hamburger-icon.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger-icon.open .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-icon.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  /* Styl menu */
+  .menu {
+    padding: 10px;
+    opacity: 0;
+  }
+  
+  .menu.open {
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .navbar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-link {
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  .navbar-link:hover{
+    box-shadow: 0 0 5px #8e8e8e;
+  }
+
+  @media (min-width: 800px){
+
+    .navbar{
+      grid-area: navbar;
+    }
+
+    .hamburger-icon{
+      display: none;
+    }
+
+    .menu{
+      opacity: 1;
+    }
+  }
+  
+  
