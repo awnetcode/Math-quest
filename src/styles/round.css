@@ -1,0 +1,14 @@
+.quest-data{
+    color: green;
+}
+
+.answer-area{
+    font-size: 2rem;
+    max-width: 8rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    text-align: center;
+    box-shadow: 0 0 5px #fff;
+}
