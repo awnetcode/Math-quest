@@ -1,0 +1,14 @@
+.fraction-place{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.int-part{
+    font-size: 2rem;
+    padding: .5rem;
+}
+
+.fraction-bar{
+    border-bottom: #e0e0e0 2px solid;
+}
