@@ -13,7 +13,7 @@ const ChangeFraction = () => {
         const int = Math.floor(Math.random() * 10) + 1;
         const num = Math.floor(Math.random() * 10) + 1;
         const denom = Math.floor(Math.random() * 10) + 1;
-        const decimal = ((int * num) / denom).toFixed(4);
+        const decimal = ((int * denom) +num)/denom.toFixed(4);
 
         setIntPart(int);
         setNumerator(num);
@@ -81,7 +81,6 @@ const ChangeFraction = () => {
                 <button className='task-button' onClick={createFraction}>NEXT</button>
             </div>
             {message && <p className='answer-info'>{message}</p>}
-            <p>Zapis dziesiętny to: {result}</p>
         </>
     );
 };

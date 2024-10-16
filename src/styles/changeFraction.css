@@ -9,6 +9,9 @@
 
 .int-part{
     font-size: 4rem;
+}
+
+.fraction-part{
     padding: .5rem;
 }
 

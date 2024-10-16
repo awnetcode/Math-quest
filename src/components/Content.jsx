@@ -1,6 +1,7 @@
 import '../styles/content.css';
 import Round from './Round';
 import ChangeFraction from './ChangeFraction';
+import AddFractions from './AddFravtions';
 
 // eslint-disable-next-line react/prop-types
 const Content = ({activeProp})=>{
@@ -13,6 +14,10 @@ const Content = ({activeProp})=>{
 
         case 'change':
             content = <ChangeFraction/>
+            break;
+
+         case 'add':
+            content = <AddFractions/>
             break;
         
         default:

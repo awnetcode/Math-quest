@@ -29,7 +29,7 @@ const Navigation = ({setActiveProp}) => {
         <ul className="navbar-list">
           <li className="navbar-link" onClick={()=>setActiveProp('round')}>Zaokrąglanie</li>
           <li className="navbar-link" onClick={()=>setActiveProp('change')}>Zamiana ułamków</li>
-          <li className="navbar-link" onClick={()=>setActiveProp('')}>Dodawanie ułamków</li>
+          <li className="navbar-link" onClick={()=>setActiveProp('add')}>Dodawanie ułamków</li>
           <li className="navbar-link" onClick={()=>setActiveProp('')}>Mnożenie ułamków</li>
         </ul>
       </nav>
