@@ -1,12 +1,17 @@
 import '../styles/addFractions.css';
 import { useState, useEffect } from 'react';
 
-// Klasa do reprezentacji ułamka mieszanego
+// Klasa do reprezentacji ułamka mieszanego (trzy liczby reprezentujące część całkowitą, licznik i mianownik)
 class MixedFraction {
     constructor(intPart, numerator, denominator) {
-        this.intPart = intPart || Math.floor(Math.random() * 10) + 1;
-        this.numerator = numerator || Math.floor(Math.random() * 10) + 1;
-        this.denominator = denominator || Math.floor(Math.random() * 10) + 1;
+        this.intPart = intPart || this.drawNumber();
+        this.numerator = numerator || this.drawNumber();
+        this.denominator = denominator || this.drawNumber();
+    }
+
+    //funkcja losująca liczbę w przedziale 1-10
+    drawNumber() {
+        return Math.floor(Math.random() * 10) + 1;
     }
 
     // Funkcja do konwersji na liczbę dziesiętną
@@ -28,6 +33,7 @@ const AddFractions = () =>{
         const newFraction2 = new MixedFraction();
         const sum = (newFraction1.toDecimal() + newFraction2.toDecimal()).toFixed(4);
 
+        //aktualizacja stanów zmiennych stanowych
         setFraction1(newFraction1);
         setFraction2(newFraction2);
         setResult(parseFloat(sum));
@@ -67,6 +73,7 @@ const AddFractions = () =>{
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userAnswer, result]);
 
     return (

@@ -31,6 +31,8 @@ const Navigation = ({setActiveProp}) => {
           <li className="navbar-link" onClick={()=>setActiveProp('change')}>Zamiana ułamków</li>
           <li className="navbar-link" onClick={()=>setActiveProp('add')}>Dodawanie ułamków</li>
           <li className="navbar-link" onClick={()=>setActiveProp('')}>Mnożenie ułamków</li>
+          <li className="navbar-link" onClick={()=>setActiveProp('')}>Zamiana na binarne</li>
+          <li className="navbar-link" onClick={()=>setActiveProp('')}>Zamiana na szesnastkowe</li>
         </ul>
       </nav>
     </div>
