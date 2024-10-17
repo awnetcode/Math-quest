@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
 .fraction-place{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: green;
+    font-family: 'Merienda', cursive;
     font-size: 2.5rem;
     font-weight: 600;
+    color: #333333;
 }
 
 .int-part{
@@ -16,7 +19,7 @@
 }
 
 .fraction-bar{
-    border-bottom: #e0e0e0 2px solid;
+    border-bottom: #333333 2px solid;
 }
 
 .answer-area{

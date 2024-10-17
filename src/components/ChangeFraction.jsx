@@ -63,6 +63,7 @@ const ChangeFraction = () => {
     return (
         <>
             <h1>Zamień ułamek zwykły na dziesiętny</h1>
+            <div className="task-place">
             <div className="fraction-place">
                 <div className="int-part">{intPart}</div>
                 <div className="fraction-part">
@@ -71,6 +72,8 @@ const ChangeFraction = () => {
                     <div className="denominator">{denominator}</div>
                 </div>
             </div>
+            </div>
+
             <input 
                 type="number" 
                 className='answer-area' 

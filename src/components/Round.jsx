@@ -55,11 +55,10 @@ const Round = () => {
 
   return (
     <>
-      <h1 className="quest-title">
-        Zaokrągl liczbę 
-        <span className="quest-data"> {number}</span> do 
-        <span className="quest-data"> {factor}</span>:
-      </h1>
+      <h1 className="quest-title">Zaokrągl liczbę: </h1>
+      <div className="task-place">
+        <div className="task-number">{number} do {factor}</div> 
+      </div>
       <form action="#" className="quest-round" onSubmit={handleSubmit}>  
         <input 
           type="number" 
