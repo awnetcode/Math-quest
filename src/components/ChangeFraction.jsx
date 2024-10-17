@@ -8,6 +8,7 @@ const ChangeFraction = () => {
     const [result, setResult] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
     const [message, setMessage] = useState('');
+    const [draftValue, setDraftValue] = useState('');
 
     function createFraction() {
         const int = Math.floor(Math.random() * 10) + 1;
@@ -25,6 +26,11 @@ const ChangeFraction = () => {
         createFraction();
     }, []);
 
+    const draftChange = (note) =>{
+        setDraftValue(note.target.value);
+        console.log(note);
+    }
+
     const handleInputChange = (e) => {
         setUserAnswer(e.target.value);
     };
@@ -37,6 +43,7 @@ const ChangeFraction = () => {
             setMessage(`Źle! Prawidłowa odpowiedź to ${result}`);
         }
         setUserAnswer('');
+        setDraftValue('');
     };
 
     useEffect(() => {
@@ -80,6 +87,13 @@ const ChangeFraction = () => {
                 value={userAnswer} 
                 onChange={handleInputChange} 
             /> 
+            <input 
+            type="text" 
+            className="draft" 
+            placeholder='brudnopis'
+            onChange={draftChange}
+            value={draftValue}
+            />
             <div className="buttons-panel">
                 <button className='task-button' onClick={handleSubmit}>Sprawdź</button>
                 <button className='task-button' onClick={createFraction}>NEXT</button>
