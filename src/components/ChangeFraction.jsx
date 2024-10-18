@@ -1,35 +1,30 @@
 import '../styles/changeFraction.css';
 import { useState, useEffect } from 'react';
+import MixedFraction from './DrawFraction';
+ import Draft from './Draft';
 
 const ChangeFraction = () => {
-    const [intPart, setIntPart] = useState(0);
-    const [numerator, setNumerator] = useState(0);
-    const [denominator, setDenominator] = useState(0);
+
+    const [fraction, setFraction] = useState(new MixedFraction())
     const [result, setResult] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
     const [message, setMessage] = useState('');
     const [draftValue, setDraftValue] = useState('');
 
     function createFraction() {
-        const int = Math.floor(Math.random() * 10) + 1;
-        const num = Math.floor(Math.random() * 10) + 1;
-        const denom = Math.floor(Math.random() * 10) + 1;
-        const decimal = ((int * denom) +num)/denom.toFixed(4);
 
-        setIntPart(int);
-        setNumerator(num);
-        setDenominator(denom);
+        const drawnFraction = new MixedFraction();
+        const decimal = drawnFraction.toDecimal().toFixed(3);
+
+        setFraction(drawnFraction);
         setResult(parseFloat(decimal));
+        setDraftValue('');
     }
 
     useEffect(() => {
         createFraction();
     }, []);
 
-    const draftChange = (note) =>{
-        setDraftValue(note.target.value);
-        console.log(note);
-    }
 
     const handleInputChange = (e) => {
         setUserAnswer(e.target.value);
@@ -72,11 +67,11 @@ const ChangeFraction = () => {
             <h1>Zamień ułamek zwykły na dziesiętny</h1>
             <div className="task-place">
             <div className="fraction-place">
-                <div className="int-part">{intPart}</div>
+                <div className="int-part">{fraction.intPart}</div>
                 <div className="fraction-part">
-                    <div className="numerator">{numerator}</div>
+                    <div className="numerator">{fraction.numerator}</div>
                     <div className="fraction-bar"></div>
-                    <div className="denominator">{denominator}</div>
+                    <div className="denominator">{fraction.denominator}</div>
                 </div>
             </div>
             </div>
@@ -87,13 +82,7 @@ const ChangeFraction = () => {
                 value={userAnswer} 
                 onChange={handleInputChange} 
             /> 
-            <input 
-            type="text" 
-            className="draft" 
-            placeholder='brudnopis'
-            onChange={draftChange}
-            value={draftValue}
-            />
+             <Draft draftValue={draftValue} setDraftValue={setDraftValue} />  
             <div className="buttons-panel">
                 <button className='task-button' onClick={handleSubmit}>Sprawdź</button>
                 <button className='task-button' onClick={createFraction}>NEXT</button>
