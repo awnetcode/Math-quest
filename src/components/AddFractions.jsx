@@ -1,6 +1,7 @@
 import '../styles/addFractions.css';
 import { useState, useEffect } from 'react';
 import MixedFraction from './DrawFraction';
+import Draft from './Draft';
 
 const AddFractions = () =>{
     const [fraction1, setFraction1] = useState(new MixedFraction());
@@ -8,17 +9,19 @@ const AddFractions = () =>{
     const [result, setResult] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
     const [message, setMessage] = useState('');
+    const [draftValue, setDraftValue] = useState('');
 
     // Funkcja do tworzenia nowych ułamków
     function createFraction() {
         const newFraction1 = new MixedFraction();
         const newFraction2 = new MixedFraction();
-        const sum = (newFraction1.toDecimal() + newFraction2.toDecimal()).toFixed(4);
+        const sum = (newFraction1.toDecimal() + newFraction2.toDecimal()).toFixed(2);
 
         //aktualizacja stanów zmiennych stanowych
         setFraction1(newFraction1);
         setFraction2(newFraction2);
         setResult(parseFloat(sum));
+        setDraftValue('');
     }
 
     useEffect(() => {
@@ -86,6 +89,7 @@ const AddFractions = () =>{
                 value={userAnswer} 
                 onChange={handleInputChange} 
             /> 
+            <Draft draftValue={draftValue} setDraftValue={setDraftValue}/>
             <div className="buttons-panel">
                 <button className='task-button' onClick={handleSubmit}>Sprawdź</button>
                 <button className='task-button' onClick={createFraction}>NEXT</button>

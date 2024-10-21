@@ -3,6 +3,7 @@ import Round from './Round';
 import ChangeFraction from './ChangeFraction';
 import AddFractions from './AddFractions';
 import MultiplyFractions from './MultiplyFractions';
+import Binary from './Binary';
 
 // eslint-disable-next-line react/prop-types
 const Content = ({activeProp})=>{
@@ -26,7 +27,7 @@ const Content = ({activeProp})=>{
             break;
         
         case 'bin':
-            content = 'Ten komponent nie jest jeszcze gotowy.'
+            content = <Binary/>
             break;
 
         case 'hex':
