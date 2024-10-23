@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 
 import MixedFraction from './DrawFraction';
 import Draft from './Draft';
+import ButtonsPanel from './ButtonsPanel';
+import Message from './Message';
 
 const MultiplyFractions = () =>{
 
@@ -23,6 +25,7 @@ const MultiplyFractions = () =>{
         setFraction1(newFraction1);
         setFraction2(newFraction2);
         setResult(parseFloat(product));
+        setMessage('');
     }
 
     useEffect(() => {
@@ -91,11 +94,8 @@ const MultiplyFractions = () =>{
                 onChange={handleInputChange} 
             /> 
             <Draft draftValue={draftValue} setDraftValue={setDraftValue}/>
-            <div className="buttons-panel">
-                <button className='task-button' onClick={handleSubmit}>Sprawdź</button>
-                <button className='task-button' onClick={createFraction}>NEXT</button>
-            </div>
-            {message && <p className='answer-info'>{message}</p>}
+            <ButtonsPanel checkButton = {handleSubmit} nextButton = {createFraction}/>
+            <Message message={message}/>
         </>
     );
 

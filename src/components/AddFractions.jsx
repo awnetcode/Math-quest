@@ -2,6 +2,8 @@ import '../styles/addFractions.css';
 import { useState, useEffect } from 'react';
 import MixedFraction from './DrawFraction';
 import Draft from './Draft';
+import ButtonsPanel from './ButtonsPanel';
+import Message from './Message';
 
 const AddFractions = () =>{
     const [fraction1, setFraction1] = useState(new MixedFraction());
@@ -22,6 +24,7 @@ const AddFractions = () =>{
         setFraction2(newFraction2);
         setResult(parseFloat(sum));
         setDraftValue('');
+        setMessage('')
     }
 
     useEffect(() => {
@@ -39,7 +42,10 @@ const AddFractions = () =>{
         } else {
             setMessage(`Źle! Prawidłowa odpowiedź to ${result}`);
         }
+        console.log(userAnswer);
+        console.log(result);
         setUserAnswer('');
+        setDraftValue('')
     };
 
     useEffect(() => {
@@ -90,11 +96,8 @@ const AddFractions = () =>{
                 onChange={handleInputChange} 
             /> 
             <Draft draftValue={draftValue} setDraftValue={setDraftValue}/>
-            <div className="buttons-panel">
-                <button className='task-button' onClick={handleSubmit}>Sprawdź</button>
-                <button className='task-button' onClick={createFraction}>NEXT</button>
-            </div>
-            {message && <p className='answer-info'>{message}</p>}
+            <ButtonsPanel checkButton = {handleSubmit} nextButton = {createFraction}/>
+            <Message message={message}/>
         </>
     );
 }

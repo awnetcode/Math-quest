@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../styles/round.css';
+import ButtonsPanel from './ButtonsPanel';
+import Message from './Message';
 
 const Round = () => {
   // Stany przechowujące wylosowane wartości
@@ -66,12 +68,9 @@ const Round = () => {
           value={userAnswer} // Powiązanie pola input z wartością userAnswer
           onChange={handleInputChange} // Obsługa zmiany wartości input
         /> 
-        <div className="buttons-panel">
-        <button className='task-button' type="submit">Sprawdź</button> 
-        <button className='task-button' onClick={roundNumber}>NEXT</button>
-        </div>
+        <ButtonsPanel checkButton = {handleSubmit} nextButton = {roundNumber}/>
       </form> 
-      {userAnswer && <p className='answer-info'>{message}</p>} {/* Wyświetlanie wiadomości, jeśli istnieje */}
+      <Message message={message} userAnswer={userAnswer}/>{/* Wyświetlanie wiadomości, jeśli istnieje */}
     </>
   );
 };

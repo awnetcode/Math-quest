@@ -1,7 +1,9 @@
 import '../styles/changeFraction.css';
 import { useState, useEffect } from 'react';
 import MixedFraction from './DrawFraction';
- import Draft from './Draft';
+import Draft from './Draft';
+import ButtonsPanel from './ButtonsPanel';
+import Message from './Message';
 
 const ChangeFraction = () => {
 
@@ -19,6 +21,8 @@ const ChangeFraction = () => {
         setFraction(drawnFraction);
         setResult(parseFloat(decimal));
         setDraftValue('');
+        setUserAnswer('');
+        setMessage('');
     }
 
     useEffect(() => {
@@ -82,12 +86,9 @@ const ChangeFraction = () => {
                 value={userAnswer} 
                 onChange={handleInputChange} 
             /> 
-             <Draft draftValue={draftValue} setDraftValue={setDraftValue} />  
-            <div className="buttons-panel">
-                <button className='task-button' onClick={handleSubmit}>Sprawdź</button>
-                <button className='task-button' onClick={createFraction}>NEXT</button>
-            </div>
-            {message && <p className='answer-info'>{message}</p>}
+             <Draft draftValue={draftValue} setDraftValue={setDraftValue} /> 
+             <ButtonsPanel checkButton = {handleSubmit} nextButton = {createFraction}/> 
+             <Message message={message}/>
         </>
     );
 };

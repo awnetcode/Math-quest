@@ -1,5 +1,3 @@
-
-
 class MixedFraction {
     constructor(intPart, numerator, denominator) {
         this.intPart = intPart || this.drawNumber();
