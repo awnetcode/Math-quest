@@ -23,7 +23,6 @@ const Round = () => {
   }
 
   function roundNumber() {
-    setUserAnswer('');
     const factor = getRoundingFactor();
     const number = getRandomNumber(factor);  // Losuj liczbę od wartości `factor` w górę
     const rounded = Math.round(number / factor) * factor;
@@ -32,6 +31,7 @@ const Round = () => {
     setFactor(factor);
     setNumber(number);
     setRounded(rounded);
+    setUserAnswer('');
   }
 
   // useEffect, aby wywołać roundNumber tylko raz, przy pierwszym renderowaniu komponentu
@@ -40,6 +40,27 @@ const Round = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit();
+        }
+
+        if (e.key === ' '){
+          roundNumber();
+        }
+    };
+    
+    // Dodanie nasłuchiwania klawisza Enter
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Usuwanie nasłuchiwacza przy unmount
+    return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+    };
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [userAnswer, rounded]);
+
   // Funkcja obsługująca zmianę w polu input
   const handleInputChange = (e) => {
     setUserAnswer(e.target.value); // Aktualizacja odpowiedzi użytkownika
@@ -47,12 +68,25 @@ const Round = () => {
 
   // Funkcja obsługująca wysłanie formularza i porównanie odpowiedzi
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
+  // Sprawdzenie, czy userAnswer nie jest pusty
+  if (userAnswer !== '') {
+    // Sprawdzenie, czy odpowiedź użytkownika jest poprawna
     if (parseInt(userAnswer) === rounded) {
       setMessage('Dobrze!'); // Jeśli odpowiedź jest poprawna
     } else {
-      setMessage('Źle! Prawidłowa odpowiedź to '+rounded); // Jeśli odpowiedź jest błędna
+      setMessage('Źle! Prawidłowa odpowiedź to ' + rounded); // Jeśli odpowiedź jest błędna
     }
+  } else {
+    setMessage(''); // Jeśli pole jest puste
+  }
+  setUserAnswer('');
+  };
+
+  // Funkcja obsługująca kliknięcie "next" - losuje nową liczbę
+  const handleNext = () => {
+    setMessage(''); // Wyczyść wiadomość tylko przy losowaniu nowego zadania
+    roundNumber();  // Losowanie nowego zadania
   };
 
   return (
@@ -68,11 +102,12 @@ const Round = () => {
           value={userAnswer} // Powiązanie pola input z wartością userAnswer
           onChange={handleInputChange} // Obsługa zmiany wartości input
         /> 
-        <ButtonsPanel checkButton = {handleSubmit} nextButton = {roundNumber}/>
+        <ButtonsPanel checkButton={handleSubmit} nextButton={handleNext} />
       </form> 
-      <Message message={message} userAnswer={userAnswer}/>{/* Wyświetlanie wiadomości, jeśli istnieje */}
+      <Message message={message} /> {/* Wyświetlanie wiadomości, jeśli istnieje */}
     </>
   );
 };
 
 export default Round;
+

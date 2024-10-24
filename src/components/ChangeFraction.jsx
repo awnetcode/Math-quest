@@ -25,6 +25,9 @@ const ChangeFraction = () => {
         setMessage('');
     }
 
+    //console.log(result);
+    //console.log(userAnswer);
+
     useEffect(() => {
         createFraction();
     }, []);

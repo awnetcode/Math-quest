@@ -25,12 +25,13 @@ const Binary = () =>{
     for (let i = 0; i < loopCounter; i++) {
         string += Math.floor(Math.random() * 2); // Losuje 0 lub 1
     }
-    console.log(string);
+    
     setLoopCounter(lenght); // Aktualizacja długości w stanie
     setBinaryString(string); // Przechowywanie wyniku w stanie
     setDraftValue(''); //Czyszczenie brudnopisu
     setUserAnswer('');
     setMessage('');
+    
 }
 
 function binaryToDecimal(e){
@@ -54,8 +55,8 @@ function binaryToDecimal(e){
   };
 
     useEffect(() => {
-       const lenght = binaryLenght(); //generuje losową wartość
-       setLoopCounter(lenght); //ustawienie jej jako stan
+      binaryValue();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);  // Pusty array dependency, aby wykonało się tylko raz po pierwszym renderze
 
     return(
