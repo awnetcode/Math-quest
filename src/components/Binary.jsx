@@ -4,8 +4,8 @@ import Draft from "./Draft";
 import ButtonsPanel from "./ButtonsPanel";
 import Message from "./Message";
 
-const Binary = () =>{
-    const [loopCounter, setLoopCounter] = useState('');
+// eslint-disable-next-line react/prop-types
+const Binary = ({scoreProp, setScoreProp}) =>{
     const [binaryString, setBinaryString] = useState('');
     const [draftValue, setDraftValue] = useState('');
     const [userAnswer, setUserAnswer] = useState('');
@@ -22,11 +22,10 @@ const Binary = () =>{
     let string = '';
 
     // Losuj 0 lub 1 tyle razy, ile wynosi długość
-    for (let i = 0; i < loopCounter; i++) {
+    for (let i = 0; i < lenght; i++) {
         string += Math.floor(Math.random() * 2); // Losuje 0 lub 1
     }
     
-    setLoopCounter(lenght); // Aktualizacja długości w stanie
     setBinaryString(string); // Przechowywanie wyniku w stanie
     setDraftValue(''); //Czyszczenie brudnopisu
     setUserAnswer('');
@@ -42,6 +41,7 @@ function binaryToDecimal(e){
         e.preventDefault();
         if (parseInt(userAnswer) === decimalValue) {
           setMessage('Dobrze!'); // Jeśli odpowiedź jest poprawna
+          setScoreProp(scoreProp+1);
         } else {
           setMessage('Źle! Prawidłowa odpowiedź to '+ decimalValue); // Jeśli odpowiedź jest błędna
         }

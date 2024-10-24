@@ -15,14 +15,13 @@ const Navigation = ({setActiveProp}) => {
   return (
     <>
         <div className="navbar">
+          {/* Przyciski Hamburger */}
         <div className={`hamburger-icon ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
       </div>
         <div className="hamburger-menu">
-      {/* Przyciski Hamburger */}
-
 
       {/* Menu */}
       <nav className={`menu ${isOpen ? "open" : ""}`}>
@@ -32,7 +31,7 @@ const Navigation = ({setActiveProp}) => {
           <li className="navbar-link" onClick={()=>setActiveProp('add')}>Dodawanie ułamków</li>
           <li className="navbar-link" onClick={()=>setActiveProp('multiply')}>Mnożenie ułamków</li>
           <li className="navbar-link" onClick={()=>setActiveProp('bin')}>Konwersja binarna</li>
-          <li className="navbar-link" onClick={()=>setActiveProp('hex')}>Konwerja szesnastkowa</li>
+          <li className="navbar-link" onClick={()=>setActiveProp('hex')}>Konwersja szesnastkowa</li>
         </ul>
       </nav>
     </div>

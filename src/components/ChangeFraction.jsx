@@ -5,7 +5,8 @@ import Draft from './Draft';
 import ButtonsPanel from './ButtonsPanel';
 import Message from './Message';
 
-const ChangeFraction = () => {
+// eslint-disable-next-line react/prop-types
+const ChangeFraction = ({scoreProp, setScoreProp}) => {
 
     const [fraction, setFraction] = useState(new MixedFraction())
     const [result, setResult] = useState(0);
@@ -41,6 +42,7 @@ const ChangeFraction = () => {
         if (e) e.preventDefault();
         if (parseFloat(userAnswer) === result) {
             setMessage('Dobrze!');
+            setScoreProp(scoreProp+2);
         } else {
             setMessage(`Źle! Prawidłowa odpowiedź to ${result}`);
         }

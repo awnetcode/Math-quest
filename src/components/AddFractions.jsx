@@ -5,7 +5,8 @@ import Draft from './Draft';
 import ButtonsPanel from './ButtonsPanel';
 import Message from './Message';
 
-const AddFractions = () =>{
+// eslint-disable-next-line react/prop-types
+const AddFractions = ({scoreProp, setScoreProp}) =>{
     const [fraction1, setFraction1] = useState(new MixedFraction());
     const [fraction2, setFraction2] = useState(new MixedFraction());
     const [result, setResult] = useState(0);
@@ -39,6 +40,7 @@ const AddFractions = () =>{
         if (e) e.preventDefault();
         if (parseFloat(userAnswer) === result) {
             setMessage('Dobrze!');
+            setScoreProp(scoreProp+3);
         } else {
             setMessage(`Źle! Prawidłowa odpowiedź to ${result}`);
         }

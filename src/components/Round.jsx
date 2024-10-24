@@ -3,7 +3,8 @@ import '../styles/round.css';
 import ButtonsPanel from './ButtonsPanel';
 import Message from './Message';
 
-const Round = () => {
+// eslint-disable-next-line react/prop-types
+const Round = ({scoreProp, setScoreProp}) => {
   // Stany przechowujące wylosowane wartości
   const [number, setNumber] = useState(0);
   const [factor, setFactor] = useState(0);
@@ -74,6 +75,7 @@ const Round = () => {
     // Sprawdzenie, czy odpowiedź użytkownika jest poprawna
     if (parseInt(userAnswer) === rounded) {
       setMessage('Dobrze!'); // Jeśli odpowiedź jest poprawna
+      setScoreProp(scoreProp+1);
     } else {
       setMessage('Źle! Prawidłowa odpowiedź to ' + rounded); // Jeśli odpowiedź jest błędna
     }

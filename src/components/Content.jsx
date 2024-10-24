@@ -6,28 +6,28 @@ import MultiplyFractions from './MultiplyFractions';
 import Binary from './Binary';
 
 // eslint-disable-next-line react/prop-types
-const Content = ({activeProp})=>{
+const Content = ({activeProp, setScoreProp, scoreProp})=>{
     let content;
 
     switch(activeProp){
         case 'round':
-            content = <Round/>;
+            content = <Round setScoreProp={setScoreProp} scoreProp={scoreProp}/>;
             break;
 
         case 'change':
-            content = <ChangeFraction/>
+            content = <ChangeFraction setScoreProp={setScoreProp} scoreProp={scoreProp}/>
             break;
 
          case 'add':
-            content = <AddFractions/>
+            content = <AddFractions setScoreProp={setScoreProp} scoreProp={scoreProp}/>
             break;
 
         case 'multiply':
-            content = <MultiplyFractions/>
+            content = <MultiplyFractions setScoreProp={setScoreProp} scoreProp={scoreProp}/>
             break;
         
         case 'bin':
-            content = <Binary/>
+            content = <Binary setScoreProp={setScoreProp} scoreProp={scoreProp}/>
             break;
 
         case 'hex':
