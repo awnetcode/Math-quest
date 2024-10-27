@@ -1,6 +1,13 @@
 .quest-content{
+    width: 100%;
     grid-area: main;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+@media screen and (min-width: 800px){
+    .quest-content{
+        width: auto;
+    }
 }

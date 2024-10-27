@@ -1,11 +1,11 @@
 /* Podstawowe style kontenera */
 
-.navbar{
-  width: 80%;
-  
+.navbar{ 
   padding: 2rem;
   display: flex;
+  position: relative;
 }
+
 .hamburger-menu {
   width: 100%;
   }
@@ -16,9 +16,9 @@
     cursor: pointer;
     width: 30px;
     height: 20px;
-    position: relative;
-    top: 0;
-    left: 0;
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
   }
   
   .hamburger-icon .line {
@@ -46,10 +46,12 @@
   .menu {
     padding: 10px;
     opacity: 0;
+    max-height: 0;
   }
   
   .menu.open {
     opacity: 1;
+    max-height: fit-content;
     transition: all 0.5s ease;
   }
   

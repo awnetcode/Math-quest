@@ -1,7 +1,7 @@
 #root {
-  width: 100%;
-  padding: 2rem;
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 #container{
@@ -13,18 +13,17 @@
   justify-content: center;
 }
 
+.quest-content h1{
+  font-size: 1.5rem;
+}
+
 .score{
   position: fixed;
-  top: 10%;
-  font-size: 2rem;
+  top: 5%;
   font-family: 'Merienda', cursive;
 }
 
 @media screen and (min-width: 800px){
-
-  #root{
-    height: 100%;
-  }
   
   #container{
     display: grid;
@@ -32,12 +31,17 @@
     grid-template-areas: 
     "navbar main"
     ;
+  }
 
     .score{
-      position: fixed;
+      font-size: 2rem;
       top: 10%;
       right: 10%;
   }
+
+  .quest-content h1{
+    font-size: 2.5rem;
   }
+ 
   
 }
