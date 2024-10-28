@@ -43,21 +43,29 @@
   }
   
   /* Styl menu */
-  .menu {
-    padding: 10px;
+  .menu { 
     opacity: 0;
     max-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .menu.open {
+    width: 80%;
+    left: 10%;
+    background: #242424;
+    z-index: 99;
     opacity: 1;
     max-height: fit-content;
     transition: all 0.5s ease;
+    border: 1px solid white;
+    position: fixed;
   }
   
   .navbar-list {
     list-style-type: none;
-    padding: 0;
+    padding: 1rem;
     margin: 0;
   }
   
@@ -74,6 +82,19 @@
 
     .navbar{
       grid-area: navbar;
+     
+    }
+    
+    .hamburger-menu{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu.open{
+      width: auto;
+      position: static;
+      border: none;
     }
 
     .hamburger-icon{

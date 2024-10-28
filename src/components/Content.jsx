@@ -3,6 +3,7 @@ import Round from './Round';
 import ChangeFraction from './ChangeFraction';
 import AddFractions from './AddFractions';
 import MultiplyFractions from './MultiplyFractions';
+import FractionPerCent from './FractionPerCent';
 import Binary from './Binary';
 
 // eslint-disable-next-line react/prop-types
@@ -26,6 +27,10 @@ const Content = ({activeProp, setScoreProp, scoreProp})=>{
             content = <MultiplyFractions setScoreProp={setScoreProp} scoreProp={scoreProp}/>
             break;
         
+        case 'fractionPerCent':
+            content = <FractionPerCent setScoreProp={setScoreProp} scoreProp={scoreProp}/>
+            break;
+
         case 'bin':
             content = <Binary setScoreProp={setScoreProp} scoreProp={scoreProp}/>
             break;

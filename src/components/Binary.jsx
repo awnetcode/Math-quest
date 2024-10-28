@@ -63,7 +63,7 @@ function binaryToDecimal(e){
         <>
         <h1>Zamień liczbę binarną na dziesiętną</h1>
         <div className="task-place">
-            <div className="fraction-place">
+            <div className="task-number">
             {binaryString}
             </div>
         </div>
