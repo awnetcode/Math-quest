@@ -69,7 +69,7 @@ const MultiplyFractions = ({scoreProp, setScoreProp}) =>{
 
     return (
         <>
-            <h1>Pomnóż ułamki i podaj wynik w liczbie dziesietnej</h1>
+            <h1>Pomnóż ułamki i podaj wynik w liczbie dziesiętnej</h1>
             <div className="task-place">
                 <div className="fraction-place">
                     <div className="int-part">{fraction1.intPart}</div>
